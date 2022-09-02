@@ -54,7 +54,10 @@ class Chirp:
         self.parent = parent
         self.author = author
         self.text = text
-        self.replies = replies
+        if replies:
+            self.replies = replies
+        else:
+            self.replies = []
         self.publish_date = publish_date
 
     def __eq__(self, other: 'Chirp'):
