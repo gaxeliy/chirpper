@@ -1,15 +1,8 @@
-from fastapi import FastAPI
-import uvicorn
-
+from app import create_app
 from domain.models import Chirp, User
-from repository.db import MockDb
 from serializers.models import ChirpPydanticModel
-from use_cases.use_cases import ChirpHandler
 
-app = FastAPI()
-
-db = MockDb()
-chirp_handler = ChirpHandler(db)
+app, chirp_handler = create_app()
 
 
 @app.post('/create')
@@ -22,7 +15,3 @@ async def create_chirp(chirp: ChirpPydanticModel):
             chirp.publish_date
         )
     )
-
-
-if __name__ == '__main__':
-    uvicorn.run(app)
