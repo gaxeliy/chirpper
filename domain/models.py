@@ -9,7 +9,8 @@ class Sex(Enum):
 
 
 class Picture:
-    ...
+    def __init__(self):
+        self.id = uuid.uuid4()
 
 
 class User:

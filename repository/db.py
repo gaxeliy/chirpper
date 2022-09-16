@@ -21,3 +21,14 @@ class MockDb(AbstractDatabase):
     def save_chirp_to_db(self, chirps: list[Chirp]):
         for chirp in chirps:
             self.chirps[chirp.uuid] = chirp
+
+
+class SqliteDb(AbstractDatabase):
+    def __init__(self):
+        pass
+
+    def read_chirp_from_db(self, uuid) -> Chirp:
+        pass
+
+    def save_chirp_to_db(self, chirps: list[Chirp]):
+        pass
